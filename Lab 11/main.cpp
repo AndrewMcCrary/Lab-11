@@ -6,7 +6,19 @@ using namespace std;
 
 int main(void) {
 
-	Graphy graph = Graphy();
+	Graphy graph;
+
+	graph.addVertex(1);
+	graph.addVertex(2);
+	graph.addVertex(3);
+	graph.addVertex(4);
+	graph.addVertex(5);
+
+	graph.addEdge(1, 5);
+	graph.addEdge(5, 3);
+	graph.addEdge(3, 4);
+	graph.addEdge(3, 2);
+	graph.addEdge(4, 2);
 
 	bool connectionTerminated = false;
 	while (!connectionTerminated) {
@@ -63,28 +75,28 @@ int main(void) {
 		case 4:
 			std::cout << "\nYou selected [4] Out Edges. Please provide a base: " << endl;
 			std::cin >> base;
-			if (!graph.outEdges(base).size()) {
+			if (graph.inEdges(dest).empty()) {
 				std::cout << "There are no edges going out of this point." << endl;
 			}
 			else {
 				vector<int> ret = graph.outEdges(base);
 				std::cout << base << "has edges that go to:\n\n";
-				for (int x = 0, x < ret.size(); x++) {
-					std::cout << ret(x) << ", ";
+				for (int x = 0; x < ret.size(); x++) {
+					std::cout << ret[x] << ", ";
 				} 
 			}
 			break;
 		case 5:
 			std::cout << "\nYou selected [5] In Edges. Please provide a destination: " << endl;
 			std::cin >> dest;
-			if (graph.inEdges(dest) == vector::empty) {
+			if (graph.inEdges(dest).empty()) {
 				std::cout << dest << "has edges that come from:\n\n" << endl;
 			}
 			else {
-				vector<int> ret = graph.inEdges();
+				vector<int> ret = graph.inEdges(dest);
 				std::cout << "These are the in edges:\n\n";
 				for (int x = 0; x < ret.size(); x++) {
-					std::cout << ret(x) << ", ";
+					std::cout << ret[x] << ", ";
 				} 
 			}
 			break;
@@ -96,7 +108,7 @@ int main(void) {
 				std::vector<int> retV;
 				retV = graph.depthFirstSearch(base, dest, std::vector<int>());
 
-				for (int x = 0, x < retV.size(); x++) {
+				for (int x = 0; x < retV.size(); x++) {
 					std::cout << retV[x] << " -> ";
 				} 
 			}
@@ -109,7 +121,7 @@ int main(void) {
 				std::vector<int> retV;
 				retV = graph.breadthFirstSearch(base, dest);
 
-				for (int x = 0, x < retV.size(); x++) {
+				for (int x = 0; x < retV.size(); x++) {
 					std::cout << retV[x] << " -> ";
 				} 			
 			}
