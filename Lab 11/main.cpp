@@ -25,8 +25,8 @@ int main(void) {
 
 	bool connectionTerminated = false;
 	while (!connectionTerminated) {
-		std::cout << "\nGraph Function Testing Menu\n\n [1] Add Edge\n [2] Remove Edge\n [3] Has Edge\n [4] Has Vertex\n [5] Out Edges\n" <<
-			" [6] In Edges\n [7] DFS\n [8] BFS\n";
+		std::cout << "\nGraph Function Testing Menu\n\n [1] Add Edge\n [2] Remove Edge\n [3] Has Edge\n [4] Add Vertex\n [5] Remove Vertex\n [6] Has Vertex\n [7] Out Edges\n" <<
+			" [8] In Edges\n [9] DFS\n [10] BFS\n";
 		int choice = 0;
 		std::cin >> choice;
 		bool correct = true;
@@ -82,7 +82,20 @@ int main(void) {
 				std::cout << "This Edge DOES NOT Exist " << endl;
 			break;
 		case 4:
-			std::cout << "\nYou selected [4] Has Vertex. Please provide the following data.\nEnter a vertex: ";
+			std::cout << "\nYou selected [4] Add Vertex. Please provide the following data.\nEnter a vertex: ";
+			cin >> base;
+			graph.addVertex(base);
+			std::cout << "\nThe vertex has been added. If the vertex already existed nothing happened." << endl;
+
+			break;
+		case 5:
+			std::cout << "\nYou selected [5] Remove Vertex. Please provide the following data.\nEnter a vertex: ";
+			cin >> base;
+			graph.removeVertex(base);
+			std::cout << "\nThe vertex and all adjacent edges have been removed." << endl;
+			break;
+		case 6:
+			std::cout << "\nYou selected [6] Has Vertex. Please provide the following data.\nEnter a vertex: ";
 			std::cin >> base;
 
 			if (graph.hasVertex(base))
@@ -90,8 +103,8 @@ int main(void) {
 			else
 				std::cout << "This vertex DOES NOT Exist " << endl;
 			break;
-		case 5:
-			std::cout << "\nYou selected [4] Out Edges. Please provide the following data.\nEnter a base: ";
+		case 7:
+			std::cout << "\nYou selected [7] Out Edges. Please provide the following data.\nEnter a base: ";
 			std::cin >> base;
 			
 			if (graph.outEdges(base).empty()) 
@@ -104,8 +117,8 @@ int main(void) {
 				} 
 			}
 			break;
-		case 6:
-			std::cout << "\nYou selected [5] In Edges. Please provide the following data.\nEnter a destination: ";
+		case 8:
+			std::cout << "\nYou selected [8] In Edges. Please provide the following data.\nEnter a destination: ";
 			std::cin >> dest;
 			if (graph.inEdges(dest).empty())
 				std::cout << "There are no edges going into this point or vertex may not exist." << endl;
@@ -117,8 +130,8 @@ int main(void) {
 				} 
 			}
 			break;
-		case 7:
-			std::cout << "\nYou selected [6] DFS. Please provide the following data.\nEnter a base: ";
+		case 9:
+			std::cout << "\nYou selected [9] DFS. Please provide the following data.\nEnter a base: ";
 			std::cin >> base;
 			std::cout << "Enter a destination: ";
 			std::cin >> dest;
@@ -136,8 +149,8 @@ int main(void) {
 			else
 				std::cout << "There is no path.";
 			break;
-		case 8:
-			std::cout << "\nYou selected [7] BFS. Please provide the following data.\nEnter a base: ";
+		case 10:
+			std::cout << "\nYou selected [10] BFS. Please provide the following data.\nEnter a base: ";
 			std::cin >> base;
 			std::cout << "Enter a destination: ";
 			std::cin >> dest;

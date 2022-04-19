@@ -24,7 +24,7 @@ void Graphy::removeEdge(int base, int destination) {
 	vector<int> vertices = this->vertices[base];
 	for (int i = 0; i < vertices.size(); i++) {
 		if (vertices[i] == destination) {
-			this->vertices[base].erase(vertices.begin() + i);
+			this->vertices[base].erase(this->vertices[base].begin() + i);
 			return;
 		}
 	}
@@ -48,8 +48,7 @@ bool Graphy::hasEdge(int base, int destination) {
 	return (bool)count(this->vertices[base].begin(), this->vertices[base].end(), destination);
 }
 
-bool Graphy::hasVertex(int base)
-{
+bool Graphy::hasVertex(int base) {
 	return (bool)this->vertices.count(base);
 }
 
