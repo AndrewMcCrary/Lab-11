@@ -175,28 +175,3 @@ int main(void) {
 		std::cin >> connectionTerminated;
 	}
 }
-
-
-
-//int main(void) {
-//	Graphy g;
-
-//	g.addVertex(1);
-//	g.addVertex(2);
-//	g.addVertex(3);
-//	g.addVertex(4);
-//	g.addVertex(5);
-
-//	g.addEdge(1, 5);
-//	g.addEdge(5, 3);
-//	g.addEdge(3, 4);
-//	g.addEdge(3, 2);
-//	g.addEdge(4, 2);
-
-//	vector<int> path = g.breadthFirstSearch(1, 2);
-//	for (int i = 0; i < path.size(); i++) {
-//		cout << path[i] << endl;
-//	}
-
-//	return 0;
-//}
